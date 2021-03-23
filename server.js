@@ -1,25 +1,22 @@
-// Import anything we need
+// IMPORT ANYTHING WE NEED //
 const express = require('express')
 
-// require routes
+// REQUIRE NOTES //
 const htmlRoutes = require('./routes/htmlRoutes');
 const apiRoutes = require('./routes/apiRoutes');
 
-
-
-// Initialize the application and create my port
+// INITIALIZE THE APPLICATION & CREAT MY PORT //
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// setting up the body parsing for static and routing middleware
+// SETTING UP THE BODY PARSING FOR STATIC & ROUTING MIDDLEWARE
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-// bring in routes
+// BRING IN ROUTES //
 app.use('/api', apiRoutes);
 app.use('/', htmlRoutes)
 
-
-// start my server
+// START MY SERVER //
 app.listen(PORT, () => console.log(`My app is running on PORT: ${PORT}`));
