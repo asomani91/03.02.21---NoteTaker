@@ -8,7 +8,7 @@ var lis = [{
 }];
 
 function getNotes() {
-    const dataBuffer = fs.readFile('E:/js/jhgh/noteTaker/db/db.json', function (err, data) {
+    const dataBuffer = fs.readFile('./db/db.json', function (err, data) {
         if (err) throw err
         lis = JSON.parse(data)
     })
